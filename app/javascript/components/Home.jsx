@@ -1,120 +1,138 @@
 import React from 'react'
 import Sidebar from './SideBar'
+import {SmallCard} from './SmallComponents'
 
-class Home  extends React.Component {
-    constructor(props){
+class Home extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
-            userInput:0,
+            userInput: 0,
             totalCommission: 0,
-            totalPremium:0,
+            totalPremium: 0,
         };
 
-        this.handleUserInput =  this.handleUserInput.bind(this)
+        this.handleUserInput = this.handleUserInput.bind(this)
     }
 
-    handleUserInput (text) {
+    handleUserInput(text) {
 
-    this.setState({userInput:text.target.value});
+        this.setState({userInput: text.target.value});
 
- }
+    }
+
+    // Clear premium
+    clearPremium () {
+
+        this.setState({totalPremium:0})
+
+
+
+    }
+
+
+    clearCommission(){
+        this.setState({totalCommission:0})
+    }
+
 
     productChoice = (products1) => {
 
         const products = {
-
-            lifeEvo:0.70,
-            pension:0.30,
-            health:0.15,
-            ipi:0.5,
+            lifeEvo: 0.70,
+            pension: 0.30,
+            health: 0.15,
+            IpI: 0.05,
 
         };
-
-
-        switch(products1){
+        switch (products1) {
             case 'Life Evo':
                 return products.lifeEvo;
-
             case  'Health':
                 return products.health;
             case 'Pension':
                 return products.pension;
             case  'IpI':
-                return products.ipi;
+                return products.IpI;
             default:
                 return products.lifeEvo;
         }
-
     };
 
 
     commission = (product, userInput) => {
-            // Commission
-            let commission;
-            commission = product * userInput * 12;
-            return commission
+        //  premium
+        let premium;
+        premium = (userInput / product) / 12;
+        return premium
 
     };
 
     premium = (product, userInput) => {
-            // Commission
+        // Commission
         let premium;
-        premium = product * userInput * 12;
+        premium = userInput * product * 12;
         return premium;
     };
 
 
+    handleSummit = () => {
+        const {totalCommission, totalPremium,} = this.state;
 
-     handleSummit = () => {
-         const{ totalCommission, totalPremium,}=  this.state;
+        let calculationsOptions =
+            document.getElementById(
+                'calculation-option'
+            ).selectedIndex;
 
-            let calculationsOptions = document.getElementById('calculation-option').selectedIndex;
-            let options = document.getElementById('calculation-option').options;
-            let selectedCalculation = options[calculationsOptions].value;
-            let product = document.getElementById('calculations').selectedIndex;
-            let productOptions = document.getElementById('calculations').options;
-            let selectedProduct = productOptions[product].value;
+        let options =
+            document.getElementById(
+                'calculation-option'
+            ).options;
 
-            let userInput = document.getElementById('user-input').value;
+        let selectedCalculation = options[calculationsOptions].value;
 
-            // get commission or premium
-            let commission = this.commission(this.productChoice(selectedProduct), this.state.userInput);
-            let premium =  this.premium(this.productChoice(selectedProduct), this.state.userInput);
+        let product =
+            document.getElementById(
+                'calculations'
+            ).selectedIndex;
+
+        let productOptions =
+            document.getElementById(
+                'calculations'
+            ).options;
+        let selectedProduct = productOptions[product].value;
 
 
+        let userInput =
+            document.getElementById(
+                'user-input')
+                .value;
 
-            if(selectedCalculation === "commission"){
-                // round the final value to two decimal places
-                let finalCom = Math.round(commission * 100) / 100 ;
-                this.setState({userInput: finalCom, totalCommission: Math.round(totalCommission + finalCom * 100) / 100});
-            }
+        // get commission or premium
+        let commission = this.commission(this.productChoice(selectedProduct), this.state.userInput);
+        let premium = this.premium(this.productChoice(selectedProduct), this.state.userInput);
 
-            else if(selectedCalculation === 'premium'){
 
-                // round the final value to two decimal places
-                let finalPre = Math.round(premium * 100) / 100;
-                this.setState({userInput:finalPre, totalPremium:Math.round(totalPremium + finalPre * 100) /100});
+        if (selectedCalculation === "commission") {
+            // round the final value to two decimal places
+            let finalCom = Math.round(commission * 100) / 100;
+            this.setState({userInput: finalCom, totalCommission: Math.round(totalCommission + finalCom * 100) / 100});
+        } else if (selectedCalculation === 'premium') {
 
-            }
+            // round the final value to two decimal places
+            let finalPre = Math.round(premium * 100) / 100;
+            this.setState({userInput: finalPre, totalPremium: Math.round(totalPremium + finalPre * 100) / 100});
+
+        }
     };
 
 
-
-
-
-
-
-
-
-
-
     render() {
-        const{ totalCommission, totalPremium, userInput}=  this.state;
+        const {totalCommission, totalPremium, userInput} = this.state;
 
         return (
             <div className="row">
 
-                <div className="col-md-2">
+                <div className="col-md-2 main-bg">
                     <Sidebar menu="fas fa-cog"
                              menuName="Menu"
                              itemOne="fas fa-cog"
@@ -124,7 +142,7 @@ class Home  extends React.Component {
                 </div>
 
                 <div className="col-md-10 ">
-                    <div className="card">
+                    <div className="card main-bg">
                         <div className="card-header main-color">
 
                             Latest Calculations
@@ -134,34 +152,10 @@ class Home  extends React.Component {
                         <div className="card-body">
                             {/* Products Section*/}
                             <div className="row ">
-                                <div className="col-md-3">
-                                    <div className="card text-center ">
-                                        <h4> Life</h4>
-                                        <small>$ 20, 000</small>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-3">
-                                    <div className="card text-center">
-                                        <h4> Life</h4>
-                                        <small>$ 20, 000</small>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-3">
-                                    <div className="card text-center">
-                                        <h4> Life</h4>
-                                        <small>$ 20, 000</small>
-                                    </div>
-                                </div>
-
-                                <div className="col-md-3">
-                                    <div className="card text-center">
-                                        <h4> Life</h4>
-                                        <small>$ 20, 000</small>
-                                    </div>
-                                </div>
-
+                                <SmallCard/>
+                                <SmallCard/>
+                                <SmallCard/>
+                                <SmallCard/>
                             </div>
                             <br/>
                             {/* Calculations Section*/}
@@ -188,10 +182,10 @@ class Home  extends React.Component {
 
                                                 <label htmlFor="calculations"> Select a Product</label>
                                                 <select className="form-control" id="calculations">
-                                                    <option>Life Evo</option>
+                                                    <option value="Life Evo">Life Evo</option>
                                                     <option>Health</option>
                                                     <option>Pension</option>
-                                                    <option>IpI</option>
+                                                    <option value="IpI">IpI</option>
                                                 </select>
 
                                             </div>
@@ -203,7 +197,7 @@ class Home  extends React.Component {
                                                 <label htmlFor="user-input">Enter amount</label>
 
                                                 <input type="number" id="user-input" className="form-control"
-                                                        onChange={(text) => this.handleUserInput(text) }
+                                                       onChange={(text) => this.handleUserInput(text)}
                                                 />
                                                 <br/>
 
@@ -221,8 +215,8 @@ class Home  extends React.Component {
 
                                             <div className="form-group">
                                                 <input type="submit" id="submit"
-                                                       className=" btn btn-success btn-block"
-                                                        onClick={() => this.handleSummit()}
+                                                       className=" btn btn-yellow btn-block"
+                                                       onClick={() => this.handleSummit()}
                                                 />
                                             </div>
 
@@ -242,13 +236,16 @@ class Home  extends React.Component {
                                                     Commission History
                                                 </div>
                                                 <div className="class-body">
-                                                <pre className="text text-danger  ">
-                                                    <i className="far fa-money-bill-alt text-success ">
-                                                    </i>
-                                                      <p className="badge">
-                                                          {totalCommission}
-                                                      </p>
-                                                 </pre>
+                                                    <h4 className="text text-danger  ">
+                                                        <i className="far fa-money-bill-alt text-success ">
+                                                        </i>
+                                                        <small className="badge">
+                                                            {totalCommission}
+                                                        </small>
+                                                    </h4>
+                                                    <button className="btn btn-yellow btn-block " onClick={() => this.clearCommission()}>
+                                                        Clear
+                                                    </button>
 
 
                                                 </div>
@@ -263,16 +260,16 @@ class Home  extends React.Component {
 
                                                 </div>
                                                 <div className="class-body  ">
-                                                <pre className="text text-danger  ">
-                                                    <i className="far fa-money-bill-alt text-success ">
-                                                    </i>
-                                                      <p className="badge">
-                                                          {totalPremium}
-                                                      </p>
-                                                </pre>
-
-
-
+                                                    <h4 className="text text-danger  ">
+                                                        <i className="far fa-money-bill-alt text-success ">
+                                                        </i>
+                                                        <small className="badge">
+                                                            {totalPremium}
+                                                        </small>
+                                                    </h4>
+                                                    <button className="btn btn-yellow btn-block " onClick={() => this.clearPremium()}>
+                                                            Clear
+                                                    </button>
 
                                                 </div>
                                             </div>

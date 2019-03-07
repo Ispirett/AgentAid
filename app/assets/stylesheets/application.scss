@@ -15,9 +15,17 @@
 
 .main-color{
   background-color: rebeccapurple !important;
-  color: #CCCCCC !important;
+  background-image: linear-gradient(rebeccapurple, rgba(233, 25, 248, 0.42));
+  color: #fdfeff !important;
 }
 
 .text-danger{
   color: rebeccapurple !important;
+}
+.main-bg{
+  background-image: linear-gradient(#f4f4f4, #f8f8f8);
+}
+.btn-yellow{
+  background-color: #e28125;
+  color: #EFEFEF;
 }
