@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6900ef4c-2173-48e0-a973-50886eed5630" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -35,7 +34,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
+            <state relative-caret-position="1140">
               <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
             </state>
           </provider>
@@ -165,7 +164,7 @@
     <option name="x" value="221" />
     <option name="y" value="50" />
     <option name="width" value="1665" />
-    <option name="height" value="889" />
+    <option name="height" value="895" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -373,12 +372,12 @@
       <workItem from="1551727013123" duration="13587000" />
       <workItem from="1551746024638" duration="11653000" />
       <workItem from="1551820594983" duration="4707000" />
-      <workItem from="1551946182446" duration="697000" />
+      <workItem from="1551946182446" duration="947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35270000" />
+    <option name="totallyTimeSpent" value="35785000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -390,7 +389,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="221" y="50" width="1665" height="889" extended-state="0" />
+    <frame x="221" y="50" width="1665" height="895" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17683302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -405,7 +404,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32998747" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.44918445" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32129514" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3299435" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -606,7 +605,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
+        <state relative-caret-position="1140">
           <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
         </state>
       </provider>
