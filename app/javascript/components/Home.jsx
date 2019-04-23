@@ -152,10 +152,10 @@ class Home extends React.Component {
                         <div className="card-body">
                             {/* Products Section*/}
                             <div className="row ">
-                                <SmallCard/>
-                                <SmallCard/>
-                                <SmallCard/>
-                                <SmallCard/>
+                                <SmallCard  heading="Life Evo" content="Live products"/>
+                                <SmallCard  heading="Health" content="health product"/>
+                                <SmallCard  heading="Pension" content="pension product"/>
+                                <SmallCard  heading="IpI" content="pension product"/>
                             </div>
                             <br/>
                             {/* Calculations Section*/}

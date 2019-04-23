@@ -6,8 +6,8 @@ const SmallCard = (props) => {
 
         <div className="col-md-3">
             <div className="card text-center ">
-                      <h4>{props.heading}</h4>
-                      <small>{props.content}</small>
+                      <h4 className="pt-2">{props.heading}</h4>
+                      <small className="pb-2">{props.content}</small>
 
 
               </div>
